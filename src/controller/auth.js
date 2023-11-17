@@ -23,7 +23,6 @@ exports.sendOtp = async (req, res) => {
         lowerCaseAlphabets: false,
       });
 
-      const encodedValue = encodeURIComponent(passFor);
       const employee = {
         fullName: encodeURIComponent(fullName),
         id: encodeURIComponent(id),
@@ -104,8 +103,8 @@ exports.create = async (req, res) => {
     const recentOtp = await OTP.findOne({ email: decodeURIComponent(user.email) })
       .sort({ createdAt: -1 })
       .limit(1);
-
-    if (recentOtp === null || !recentOtp || recentOtp.length === 0) {
+   console.log("this is db otp ", recentOtp.otp , "  user otp ", otp)
+      if (recentOtp === null || !recentOtp || recentOtp.length === 0) {
       return res.status(401).json({
         success: false,
         msg: "OTP is not Present",
@@ -117,7 +116,7 @@ exports.create = async (req, res) => {
         msg: "Invalid OTP",
       });
     }
-
+ 
     if (otp === recentOtp.otp) {
       console.log("OTP is Matched");
       if (user.isEmp) {
