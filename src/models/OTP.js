@@ -14,7 +14,7 @@ const OTPSchema = new mongoose.Schema({
     },
     createdAt:{
         type:Date,
-        defualt: Date.now(),
+        defualt: Date.now,
         expires:1*60
     }
 });
