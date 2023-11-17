@@ -12,11 +12,11 @@ const OTPSchema = new mongoose.Schema({
         type:String,
         require:true,
     },
-    createdAt:{
-        type:Date,
-        defualt: Date.now,
-        expires:1*60
-    }
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      expires: 1 * 60 // expires after 1 minute
+  }
 });
 
 
