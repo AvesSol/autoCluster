@@ -8,7 +8,7 @@ const employee = require("../models/employee");
 exports.sendOtp = async (req, res) => {
   try {
     if (req.body.id) {
-      console.log("This is  Employee");
+      // console.log("This is  Employee");
 
       const { fullName, id, contact, email, passFor, reason } = req.body;
       console.log(fullName, id, contact, email, passFor, reason);
@@ -40,7 +40,7 @@ exports.sendOtp = async (req, res) => {
       cookies.set("employee", JSON.stringify(employee));
       res.status(200).render("otp");
     } else {
-      console.log("This is Visitor");
+      // console.log("This is Visitor");
 
       const { fullName, contact, email, reason, meet } = req.body;
 
@@ -87,11 +87,11 @@ exports.create = async (req, res) => {
 
     let user = {};
     if (cookies.get("employee")) {
-      console.log("Getting Employee cokkies");
+      // console.log("Getting Employee cokkies");
       user = JSON.parse(cookies.get("employee"));
       user.isEmp = true;
     } else {
-      console.log("Getting Visitors cokkies");
+      // console.log("Getting Visitors cokkies");
       user = JSON.parse(cookies.get("visitor"));
       user.isEmp = false;
     }
@@ -103,7 +103,7 @@ exports.create = async (req, res) => {
     const recentOtp = await OTP.findOne({ email: decodeURIComponent(user.email) })
       .sort({ createdAt: -1 })
       .limit(1);
-   console.log("this is db otp ", recentOtp.otp , "  user otp ", otp)
+  //  console.log("this is db otp ", recentOtp.otp , "  user otp ", otp)
       if (recentOtp === null || !recentOtp || recentOtp.length === 0) {
       return res.status(401).json({
         success: false,
@@ -118,9 +118,9 @@ exports.create = async (req, res) => {
     }
  
     if (otp === recentOtp.otp) {
-      console.log("OTP is Matched");
+      // console.log("OTP is Matched");
       if (user.isEmp) {
-        console.log("Inside thew empp");
+        // console.log("Inside thew empp");
 
         const response = await Employee.create({
           fullName: decodeURIComponent(user.fullName),
@@ -135,7 +135,7 @@ exports.create = async (req, res) => {
           .status(200)
           .redirect("https://autocluster.onrender.com/");
       } else {
-        console.log("Inside thew Visss");
+        // console.log("Inside thew Visss");
         const response = await Visitors.create({
           fullName: decodeURIComponent(user.fullName),
           contact: decodeURIComponent(user.contact),

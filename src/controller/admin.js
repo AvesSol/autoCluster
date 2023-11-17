@@ -15,6 +15,10 @@ exports.getAllInfoEmp = async (req, res) => {
     });
   } catch (e) {
     console.log("Error occured while fetching Employe info ", e);
+    res.status(200).json({
+      success:false,
+      msg: "NOt fetched Data",
+    });
   }
 };
 
@@ -29,6 +33,10 @@ exports.getAllInfoVisi = async (req, res) => {
     });
   } catch (e) {
     console.log("Error occured while fetching Visitors info ", e);
+    res.status(200).json({
+      success:false,
+      msg: "NOt fetched Data",
+    });
   }
 };
 
@@ -84,8 +92,8 @@ exports.updateVisi = async (req, res) => {
       const info = await transporter.sendMail({
         from: "Shoaib Momin",
         to: user.email,
-        subject: "AutoCluster || For Visitor Only ",
-        html: `<h1> This is Your Token ${user.fullName} : ${token}</h1>`,
+        subject: "AutoCluster || Your Token is Here !!!",
+        html: `<h1> This is Your Token ${user.fullName} : <span style="background-color: yellow;"> ${token} </span> </h1>`,
       });
 
       if (users === "Visitors") {
