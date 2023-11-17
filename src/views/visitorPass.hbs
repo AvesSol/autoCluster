@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Visitor Pass</title>
+    {{!--
+    <link rel="stylesheet" href="visitorPass.css"> --}}
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+    <link rel="icon" href="logo.jpg" type="image/png">
+
+    <style>
+        body {
+            background-color: #6499E9;
+            font-family: Outfit;
+
+        }
+
+        .nav {
+            background-color: #fbfcfa;
+            display: flex;
+            flex-wrap: nowrap;
+            width: auto;
+            height: 60px;
+            border-radius: 20px;
+            text-align: right;
+            padding: 10px;
+            margin-top: 25px;
+            text-align: right;
+        }
+
+        .nav1 {
+            background-color: #6499E9;
+            width: auto;
+            height: 50px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: nowrap;
+            text-align: left;
+            line-height: 50px;
+            font-size: 20px;
+            border-radius: 10px;
+            padding: 0 10px;
+        }
+
+        .nav1 a {
+            text-decoration: none;
+            font-size: 20px;
+            color: black;
+        }
+
+
+        .chooseYourLanguage {
+            background-color: #9EDDFF;
+            width: 100vh;
+            height: 300px;
+            border-radius: 25px;
+            margin: auto;
+            height: 100vh;
+            text-align: left;
+            padding: 10px;
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-shadow: 0 0 12px;
+        }
+
+        /* Heading */
+        .sub-heading {
+            margin-top: 2px;
+        }
+
+        .heading {
+            margin-bottom: 0px;
+        }
+
+        /* buttons */
+
+        .engButton {
+            border: none;
+            /* background-color: #6499E9; */
+            width: 200px;
+            height: 70px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: large;
+        }
+
+        .marButton {
+            border: none;
+            /* background-color: #6499E9; */
+            width: auto;
+            height: 60px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .button:hover,
+        .engButton:hover {
+            box-shadow: 0 0 10px #6499E9;
+
+
+        }
+
+        .textInput {
+            border-radius: 25px;
+            border: none;
+            padding: 20px;
+            width: 250px;
+            height: 5px;
+            font-size: large;
+        }
+
+        select {
+            border-radius: 25px;
+            border: none;
+            /* background-color: #6499E9; */
+            padding: 20px;
+            width: 250px;
+            height: 5px;
+        }
+
+        option {
+            font-size: 14px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+
+        .textarea {
+            width: 250px;
+            height: 5px;
+            border-radius: 50px;
+            border: none;
+            padding: 20px;
+            font-size: large;
+        }
+
+
+        .textInput:hover,
+        .engButton:hover {
+            box-shadow: 0 0 10px #6499E9;
+        }
+
+        form {
+            justify-content: center;
+            text-align: end;
+            padding: auto;
+            margin: 10px;
+        }
+
+        legend {
+            background-color: #6499E9;
+            border-radius: 20px;
+            padding: 5px;
+        }
+
+        fieldset {
+            border-color: #6499E9;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .button {
+            border-radius: 25px;
+            border: none;
+            color: black;
+            padding: 10px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 5px;
+            cursor: pointer;
+        }
+
+
+        label {
+            font-weight: bold;
+            margin-right: 30px;
+        }
+         #google_translate_element{
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(57, 57, 57, 0.262);
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div style="display: flex; justify-content: space-between; align-items: center;" class="nav">
+       <div style="display: flex; " class="left">
+         <div class="nav1"><a href="home">Home</a></div>
+        <div class="nav1"><a href="language">Language</a></div>
+        <div class="nav1"><a href="Pass">Pass Type</a></div>
+       </div>
+       <div class="right">
+        <div id="google_translate_element"></div>
+       </div>
+    </div>
+
+    <secttion>
+        <div class="chooseYourLanguage">
+            <h1 class="heading">Visitor Pass</h1><br><br><br>
+            <!-- <p class="sub-heading">Fill Your Details</p><br> -->
+            <form action="/register/emp-vis/create" method="POST">
+
+                <label for="fullName"> Full Name :</label>
+                <input required type="text" id="fullName" name="fullName" class="textInput"><br><br>
+
+                <label for="contactNo">Contact No. :</label>
+                <input required type="tel" name="contact" id="contactNo" class="textInput" oninput="validatePhoneNumber(this)"><br><br>
+
+                <label for="email">Email Id :</label>
+                <input required type="email" name="email" id="email" class="textInput" /><br><br>
+
+
+                <label for="ReasonOfVisit">Reason Of Visit :</label>
+                <input required type="text" name="reason" id="ReasonOfVisit" class="textarea" /><br><br>
+
+                <label for="PersonToMeet">Person You Want To Meet :</label>
+                <input required type="PersonToMeet" name="meet" id="PersonToMeet" class="textInput" /><br><br>
+                <br><br>
+
+
+                <button class="button" type="reset" style="background-color: white;">Reset</button>
+                <a href="pass"><button class="button" type="button"
+                        style="background-color: red;">Cancel</button></a>
+                <input class="button" type="submit" value="Confirm"
+                    style="background-color: rgb(136, 246, 136);"></input>
+                <!-- </fieldset> -->
+            </form>
+            <!-- </div> -->
+
+        </div>
+    </secttion>
+    <script>
+        function validatePhoneNumber(input) {
+            // Remove any non-digit characters
+            input.value = input.value.replace(/\D/g, '');
+
+            // Limit to 10 digits
+            if (input.value.length > 10) {
+                input.value = input.value.slice(0, 10);
+            }
+        }
+    </script>
+     <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

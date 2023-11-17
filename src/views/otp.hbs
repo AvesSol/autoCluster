@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gate Pass Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+    <link rel="icon" href="logo.jpg" type="image/png">
+
+</head>
+
+<style>
+    body {
+        background-color: #6499E9;
+        font-family: outfit;
+
+    }
+
+    .otp {
+        background-color: #9EDDFF;
+        width: 80vh;
+        height: 300px;
+        border-radius: 50px;
+        margin: auto;
+        height: 50vh;
+        text-align: center;
+        padding: 10px;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 0 0 12px;
+    }
+
+    .textInput {
+        border-radius: 25px;
+        border: none;
+        padding: 20px;
+        width: 250px;
+        height: 5px;
+        font-size: large;
+    }
+
+    /* Heading */
+    .sub-heading {
+        margin: 1px;
+        text-shadow: 0 0 1px #6499E9;
+        font-size: large;
+    }
+
+    .heading {
+        margin-bottom: 0px;
+        text-shadow: 0 0 2px #6499E9;
+
+    }
+
+    /* buttons */
+
+    .resend {
+        border: none;
+        background-color: #6499E9;
+        width: 120px;
+        height: 50px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        padding: auto;
+
+    }
+
+    .submit {
+        border: none;
+        background-color: #6499E9;
+        width: 100px;
+        padding: auto;
+        height: 50px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+
+    .submit:hover,
+    .resend:hover {
+        box-shadow: 0 0 10px #6499E9;
+
+
+    }
+</style>
+
+<body>
+
+    <secttion>
+        <div class="otp">
+            <h2 class="heading">Enter Generated OTP:</h2><br>
+
+            <!-- <label for="fullName"> Enter Generated OTP:</label> -->
+            <form action="/register/emp-vis/createUser" method="POST">
+                <input  type="text" id="fullName" name="otp" class="textInput" required />
+
+                <br><br>
+
+
+                <div class="buttonContainer">
+                    <button class="resend" type="button" style="background-color: rgb(249, 81, 81);">Resend</button></a>
+                    <button class="submit" type="submit" value="Confirm"
+                        style="background-color: rgb(154, 255, 154);">Submit</button></a>
+                </div>
+            </form>
+
+        </div>
+    </secttion>
+   
+</body>
+
+</html>

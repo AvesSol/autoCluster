@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8"> <!-- Set character encoding to UTF-8 -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" content="application/json; charset=utf-8" />
+    <title>Gate Pass Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.jpg" type="image/png">
+
+</head>
+
+<style>
+    body {
+        background-color: #6499E9;
+        font-family: outfit;
+
+    }
+
+    .nav {
+        background-color: #fbfcfa;
+        display: flex;
+        flex-wrap: nowrap;
+        width: auto;
+        height: 60px;
+        border-radius: 20px;
+        text-align: right;
+        padding: 10px;
+        margin-top: 25px;
+        text-align: right;
+    }
+
+    .nav1 {
+        background-color: #6499E9;
+        width: auto;
+        height: 50px;
+        margin: 10px;
+        display: flex;
+        flex-wrap: nowrap;
+        text-align: left;
+        line-height: 50px;
+        font-size: 20px;
+        border-radius: 10px;
+        padding: 0 10px;
+    }
+
+    .nav1 a {
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+    }
+
+    .chooseYourLanguage {
+        background-color: #9EDDFF;
+        width: 80vh;
+        height: 300px;
+        border-radius: 50px;
+        margin: auto;
+        height: 50vh;
+        text-align: center;
+        padding: 10px;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 0 0 12px;
+    }
+
+    /* Heading */
+    .sub-heading {
+        margin: 1px;
+        text-shadow: 0 0 1px #6499E9;
+
+    }
+
+    .heading {
+        margin-bottom: 0px;
+        text-shadow: 0 0 2px #6499E9;
+        font-size: 30px;
+    }
+
+    /* buttons */
+
+    .engButton {
+        border: none;
+        background-color: #6499E9;
+        width: 150px;
+        height: 50px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .marButton {
+        border: none;
+        background-color: #6499E9;
+        width: 150px;
+        height: 50px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+
+
+    }
+
+    .marButton:hover,
+    .engButton:hover {
+        box-shadow: 0 0 10px #6499E9;
+
+
+    }
+</style>
+
+<body>
+    <div class="nav">
+        <div class="nav1"><a href="home">मुख्यपृष्ठ</a></div>
+        <div class="nav1"><a href="language">भाषा</a></div>
+
+    </div>
+
+    <section> <!-- Correct the spelling of 'section' -->
+        <div class="chooseYourLanguage">
+            <h1 class="heading">पास जनरेटर</h1>
+            <p class="sub-heading">पास प्रकार निवडा</p> <br><br>
+
+            <div class="buttonContainer">
+                <span><a href="VisitorMar" target="_self"><button class="engButton" type="button">अभ्यागत
+                            पास</button></a></span> <!-- Marathi text goes here -->
+                <a href="EmployeeMar" target="_self"><button class="marButton">कर्मचारी पास</button></a>
+                <!-- Marathi text goes here -->
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

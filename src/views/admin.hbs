@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+  <link rel="icon" href="logo.jpg" type="image/png">
+</head>
+<style>
+  body {
+    /* background: url('mac.jpg') no-repeat center center/cover; */
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'outfit', sans-serif;
+
+  }
+
+  .page-header {
+    background-color: #a9cf46;
+    padding: 10px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .page-header h1 {
+    color: black;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .view-all-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px auto;
+  }
+
+  .tableWrapper {
+    padding: 1rem;
+  }
+
+  th,
+  td,
+  tr {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .add-row {
+    text-align: center;
+    cursor: pointer;
+  }
+</style>
+
+<body>
+  <div class="page-header" id="noti">
+    <h1>RECEIVED APPLICATIONS</h1>
+    <a class="view-all-button" href="">View All</a>
+  </div>
+
+
+  <div class="tableWrapper">
+    <h1>Employe</h1>
+    <table id="emp">
+      <tr>
+        <th>Sr. No</th>
+        <th>Name</th>
+        <th>email</th>
+        <th>Type</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Managed</th>
+      </tr>
+      <tr>
+        <!-- Content rows go here -->
+      </tr>
+      <!-- Add Row Button -->
+      <tr class="add-row">
+        <td colspan="8">
+          <button id="addRowButton">Add Row</button>
+        </td>
+      </tr>
+    </table>
+
+    <h1>Visitors</h1>
+
+    <table id="visi">
+      <tr>
+        <th>Sr. No</th>
+        <th>Name</th>
+        <th>email</th>
+        <th>Reason</th>
+        <th>topic</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Managed</th>
+
+      </tr>
+      <tr>
+        <!-- Content rows go here -->
+      </tr>
+      <!-- Add Row Button -->
+      <tr class="add-row">
+        <td colspan="8">
+          <button id="addRowButton">Add Row</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <script>
+
+
+    // Logic for Approve user 
+    async function approveNow(id, user) {
+
+      Toastify({
+        text: "Sending Token...",
+        className: "info",
+        close: false,
+        style: {
+          backgroundColor: "#DEF8D6",
+          background: "linear-gradient(to right, #e9eaec, #e3e8f1, #dde5f6, #d7e3fa, #d1e0ff);",
+          padding: "0.8rem",
+          fontWeight: "600",
+          color: "black",
+          textAlign: "center",
+          textAlign: "center",
+          width: "100vw",
+          overflow: "hidden",
+          position: "fixed",
+          top: "0px"
+        }
+      }).showToast();
+
+
+      let payload = {
+        type: "app",
+        users: user
+      }
+
+      // Sending Api Call in backend 
+      const users = await fetch(`http://localhost:4000/visi-emp/updateVisi/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        })
+
+      const response = await users.json();
+      console.log(response.success)
+      if (response.success) {
+        Toastify({
+          text: "Approved Successfully.. Token Sended",
+          className: "info",
+          style: {
+            backgroundColor: "#AEFF9B",
+            background: "linear-gradient(to right, #61fc9d, #78feb9, #93ffd0, #b1ffe3, #d1fff1);",
+            padding: "0.8rem",
+            fontWeight: "600",
+            color: "green",
+            textAlign: "center",
+            width: "100vw",
+            overflow: "hidden",
+            position: "fixed",
+            top: "0px"
+          }
+        }).showToast();
+      } else {
+        Toastify({
+          text: `Something went wrong  ${response.msg}`,
+          className: "info",
+          style: {
+            backgroundColor: "#FFB1B1",
+            background: "linear-gradient(to right, #ff2222, #ff575f, #ff8293, #ffabbe, #ffd1df);",
+            padding: "0.8rem",
+            fontWeight: "600",
+            color: "green",
+            textAlign: "center",
+            width: "100vw",
+            overflow: "hidden",
+            position: "fixed",
+            top: "0px"
+          }
+        }).showToast();
+      }
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000)
+    }
+
+    // Logic for Reject user
+    async function rejectNow(id, user) {
+
+      let payload = {
+        type: "rej",
+        users: user
+
+      }
+
+      // Sending Api Call in backend 
+      const users = await fetch(`http://localhost:4000/visi-emp/updateVisi/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        })
+
+      const response = await users.json();
+      console.log(response.msg);
+      Toastify({
+        text: "Rejected Successfully",
+        className: "info",
+        style: {
+          backgroundColor: "#FFB1B1",
+          background: "linear-gradient(to right, #fc617b, #ff7f98, #ff9bb2, #ffb7ca, #ffd1df);",
+          padding: "0.8rem",
+          fontWeight: "600",
+          color: "red",
+          textAlign: "center",
+          width: "100vw",
+          overflow: "hidden",
+          position: "fixed",
+          top: "0px"
+        }
+      }).showToast();
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000)
+
+    }
+
+    //  using this  for load data whenever page load 
+
+    window.onload = async () => {
+
+      for (let i = 0; i < 2; i++) {
+
+        const users = await fetch(`http://localhost:4000/visi-emp/${i === 0 ? "getAllInfoEmp" : "getAllInfoVisi"}`)
+        const response = await users.json();
+
+        const allUsersData = response.data;
+
+        // Using Map function for Iterate in the every object
+        allUsersData.map((data, index) => {
+
+          var table = document.querySelector(`${i === 0 ? '#emp' : '#visi'}`);
+          var newRow = table.insertRow(table.rows.length - 1);
+
+          //  Fill The Data in the Cell  (Iterate in the every feild of object)
+          Object.keys(data, index).forEach((key => {
+
+            // Creating Value variable to fetch value form key
+
+            const value = data[key];
+            // Validating Some Information
+            if (key === "lastName" || key === "pass" || key === "contact" || key === "otp" || key === "token" || key === "id") return;
+
+            // Creating Single Row
+            var cell = newRow.insertCell(this.index);
+
+            // Managed Logic Buttons
+            if (key === "__v") {
+              // Creating Buttons of Approval and Rjection 
+              if (i === 0) {
+                cell.innerHTML =
+                  ` <p style="display: flex; justify-content: center; font-size: small;
+                align-items: center ; color: black ; width: fit-content;  background-color:red; cursor:pointer;
+                border-radius: 10px; border:1px solid black; font-weight: 600;">
+ 
+                 <input id=${data._id} value=${data._id} onclick="approveNow(this.value,'Employees')" style="display:none"/>
+                 <label for=${data._id} style="clip-path: polygon(0 0, 100% 0, 82% 100%, 0% 100%); 
+                 background-color: greenyellow; padding:0.8rem ; border-top-left-radius: 10px; border-bottom-left-radius: 10px;"> App</label>
+ 
+               <input id=${data.fullName + data._id} value=${data._id} onclick="rejectNow(this.value,'Employees')"  style="display:none"/>
+                 <label  for=${data.fullName + data._id}  style="clip-path: polygon(0 0, 100% 0, 82% 100%, 0% 100%); 
+                 background-color: red; padding:0.8rem ; border-top-right-radius: 10px; border-bottom-right-radius: 10px;"> Rej</label>
+               </p>`;
+
+
+              } else {
+                cell.innerHTML =
+                  ` <p style="display: flex; justify-content: center; font-size: small;
+                align-items: center ; color: black ; width: fit-content;  background-color:red; cursor:pointer;
+                border-radius: 10px; border:1px solid black; font-weight: 600;">
+ 
+                 <input id=${data._id} value=${data._id} onclick="approveNow(this.value,'Visitors')" style="display:none"/>
+                 <label for=${data._id} style="clip-path: polygon(0 0, 100% 0, 82% 100%, 0% 100%); 
+                 background-color: greenyellow; padding:0.8rem ; border-top-left-radius: 10px; border-bottom-left-radius: 10px;"> App</label>
+ 
+               <input id=${data.fullName + data._id} value=${data._id} onclick="rejectNow(this.value,'Visitors')"  style="display:none"/>
+                 <label  for=${data.fullName + data._id}  style="clip-path: polygon(0 0, 100% 0, 82% 100%, 0% 100%); 
+                 background-color: red; padding:0.8rem ; border-top-right-radius: 10px; border-bottom-right-radius: 10px;"> Rej</label>
+               </p>`;
+              }
+              return;
+            }
+
+            // Converting id to simple formate and edit cell
+            if (key === "_id") {
+              cell.innerHTML = `<p>${index + 1}</p>`;
+              return;
+            }
+
+            //  Converting Date into Simple Formate and edit cell
+            if (key === "createdAt") {
+              let d = value.toLocaleString('en-GB', {
+                hour12: true
+              });
+              cell.innerHTML = `<p>${d}</p>`;
+              return;
+            }
+            /// filling the data into the cell
+            cell.innerHTML = `<p>${value}</p>`;
+          }))
+
+        })
+      }
+    }
+
+
+
+    // Adding Row Logic   
+    document.getElementById('addRowButton').addEventListener('click', function () {
+
+      var table = document.querySelector('#visi');
+      var newRow = table.insertRow(table.rows.length - 1); // Insert before the last row
+      for (var i = 0; i < 8; i++) {
+        var cell = newRow.insertCell(i);
+        cell.innerHTML = '<input type="text">';
+      }
+
+    });
+  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>

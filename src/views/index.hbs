@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AutoCluster</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+    <link rel="icon" href="logo.jpg" type="image/png">
+</head>
+
+<style>
+    body > .skiptranslate {
+    display: none;
+}
+    body {
+         top: 0px !important;
+        /* background-color:#1e71f6; */
+        background: url('/images/mac.jpg') no-repeat center center/cover;
+        height: 1000px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        /* z-index: -5;
+        opacity: .7; */
+        font-family: outfit;
+        margin: auto;
+    }
+
+
+    /* Style the header */
+    header {
+        background-color: #a9cf46;
+        color: #72e5fc;
+        padding: 10px;
+        height: 60px;
+        align-items: center;
+
+    }
+
+
+    /* Style the icon containers */
+    .header-icon {
+        display: inline-block;
+        margin: 10px;
+        height: 20px;
+        vertical-align: left;
+    }
+
+    .header-text h1 {
+
+        color: black;
+
+        font-size: 30px;
+        margin: 0;
+        padding: 0;
+        height: 20px;
+        text-align: center;
+    }
+
+    /* Style the icon images */
+    .header-icon img {
+        width: 30px;
+        height: 25px;
+        /* vertical-align: left; */
+    }
+
+    .left-icon {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+
+
+    }
+
+    .left-icons .header-icon img {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    /* Change the color of the icons when hovering */
+    .header-icon a:hover img {
+        filter: brightness(80%);
+    }
+
+
+    .nav {
+        background-color: #fbfcfa;
+
+        display: flex;
+        flex-wrap: nowrap;
+        border-radius: 20px;
+        /* text-align: center; */
+        text-align: justify;
+        padding: 10px;
+        margin-top: 25px;
+        color: black;
+    }
+
+    .nav1 {
+        background-color: #6499E9;
+        width: auto;
+        margin: 10px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        border-radius: 10px;
+        padding: 0 10px;
+
+    }
+
+    .nav1 a {
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+        text-align: center;
+
+    }
+
+    .home {
+        background-color: #74f574;
+        border-radius: 10px;
+        height: 400px;
+        text-align: center;
+        font-size: 20px;
+        line-height: 25px;
+        z-index: -5;
+        opacity: .9;
+        padding: 0.5rem 0rem;
+
+    }
+
+
+    /* Creting Contact Design Here  */
+    #contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .section2 {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 800px;
+        justify-content: center;
+        /* background-color: aquamarine; */
+        margin-left: 20px;
+        margin-bottom: 50px;
+    }
+
+    .addressDiv {
+        background-color: #d5d6f7;
+        height: 250px;
+        width: 600px;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        margin: 20px;
+    }
+
+    .emailDiv {
+        background-color: #d5d6f7;
+        height: 300px;
+        width: 600px;
+        border-radius: 5px;
+        text-align: center;
+        /* padding: 1px; */
+        line-height: 20px;
+        padding: 1rem 0rem;
+    }
+
+    .emailGif {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+
+    .locationGif {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+    .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    } 
+</style>
+
+
+<body>
+
+    <header>
+        <div class="header-text">
+            <h1>Marathwada AutoCluster</h1>
+        </div>
+
+
+        <div class="left-icon">
+            <div class="header-icon">
+                <a href="https://www.facebook.com/MarathwadaMAC/">
+                    <img src="images/facebook.png" alt="Facebook Iconjsdc">
+                </a>
+            </div>
+            <div class="header-icon">
+                <a href="https://www.instagram.com/macaurangabad/">
+                    <img src="images/instagram.png" alt="Instagram Icon">
+                </a>
+            </div>
+
+            <div class="header-icon">
+                <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fmacaurangabad">
+                    <img src="images/twitter.png" alt="twitter Icon">
+                </a>
+            </div>
+            <div class="header-icon">
+                <a href="https://www.linkedin.com/company/macaurangabad/?originalSubdomain=in">
+                    <img src="images/linkedln.png" alt="Linklden Icon">
+                </a>
+            </div>
+            <div class="header-icon">
+                <img src="images/email.png" alt="Email Icon">
+                <a href="mailto: marketing@macluster.com">marketing@macluster.com</a>
+                </a>
+            </div>
+
+    </header>
+
+    <div style="display: flex ; justify-content: space-between ; align-items: center;" class="nav">
+     <div style="display: flex;" class="left">
+           <div class="nav1">
+            <a href="">Home</a>
+        </div>
+        <div class="nav1">
+            <a href="#home">About Us</a>
+        </div>
+        <div class="nav1">
+            <a href="language">Pass Generator</a>
+        </div>
+        <div class="nav1">
+            <a href="#contact">Contact</a>
+        </div>
+          <div class="nav1">
+            <a href="admin">Admin</a>
+        </div> 
+     </div>
+        <div class="right">
+            <div id="google_translate_element"></div>
+        </div>
+
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    <section id="home">
+        <div class="home">
+            <h1 style="color: rgb(0, 0, 0);text-align: left;font-size: 35px; margin-left: 20px;">About Us:</h1>
+
+            <div class="vision">
+                <h1>Our Vision:</h1>
+                <h5>To develop a Common Facility Centre that supports the growth
+                    of MSMEs in the region and <br>helps them to achieve manufacturing
+                    excellence & ensuring<br> sustainable growth through collective wisdom.</h5>
+            </div><br>
+
+            <div class="mission">
+                <h1>Our Mission:</h1>
+                <h5>To empower all the MSMEs in the region by providing
+                    them manufacturing<br> services and skill development.</h5>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br>
+
+
+    <h1 style="color: rgb(0, 0, 0); margin-left: 20px;"><b>Contact Us</b></h1>
+    <section id="contact">
+        <div class="addressDiv">
+            <div><img alt="locationSymbol" src="images/address.jpg" class="locationGif"></div>
+            <h1>Our Address</h1>
+            <h3>
+                <Address>Marathwada Auto Cluster - Center of Excellence MIDC, <br>Plot No. P-174 Waluj, Aurangabad,
+                    Maharashtra-431136</Address>
+            </h3>
+        </div>
+
+        <section class="section2">
+            <div class="emailDiv">
+                <div><img alt="emailSymbol" src="images/person.png" class="emailGif"></div>
+                <h3>Krishna Dahiphale</h3>
+                <h4>Sr. Manger-Marketing</h4>
+                Mail Id: <br><a href="mailto:marketing@macluster.com">marketing@macluster.com</a><br><br>
+                Contact No.: <br> <a href="tel:+91 9890005949">+91 9890005949</a><br>
+                <a href="tel:+91 8380097949">+91 8380097949</a>
+            </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+            <div class="emailDiv">
+                <div> <img alt="emailSymbol" src="images/person.png" class="emailGif"></div>
+                <h3>Pallavi Bare</h3>
+                <h4>Asst. Manager-HR</h4>
+                Mail Id: <br><a href="mailto:hr@macluster.com">hr@macluster.com</a><br><br>
+                Contact No.: <br> <a href="tel:+91 8380097984">+91 8380097984</a>
+            </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <div class="emailDiv">
+                <div><img alt="emailSymbol" src="images/person.png" class="emailGif"></div>
+                <h3>Rajendra Mudkhedkar</h3>
+                <h4>General Manager</h4>
+                Mail Id: <br><a href="mailto:marketing@macluster.com">marketing@macluster.com</a><br><br>
+                Contact No.: <br> <a href="tel:+91 8380048120">+91 8380048120</a>
+        </section>
+        </div>
+
+    </section>
+
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>
