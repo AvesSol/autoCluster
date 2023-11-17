@@ -168,7 +168,7 @@
       }
 
       // Sending Api Call in backend 
-      const users = await fetch(`http://localhost:4000/visi-emp/updateVisi/${id}`,
+      const users = await fetch(`https://autocluster.onrender.com/visi-emp/updateVisi/${id}`,
         {
           method: "PUT",
           headers: {
@@ -229,7 +229,7 @@
       }
 
       // Sending Api Call in backend 
-      const users = await fetch(`http://localhost:4000/visi-emp/updateVisi/${id}`,
+      const users = await fetch(`https://autocluster.onrender.com/visi-emp/updateVisi/${id}`,
         {
           method: "PUT",
           headers: {
@@ -268,7 +268,7 @@
 
       for (let i = 0; i < 2; i++) {
 
-        const users = await fetch(`http://localhost:4000/visi-emp/${i === 0 ? "getAllInfoEmp" : "getAllInfoVisi"}`)
+        const users = await fetch(`https://autocluster.onrender.com/visi-emp/${i === 0 ? "getAllInfoEmp" : "getAllInfoVisi"}`)
         const response = await users.json();
 
         const allUsersData = response.data;

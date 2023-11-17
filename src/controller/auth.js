@@ -134,7 +134,7 @@ exports.create = async (req, res) => {
         return res
           .clearCookie("employee")
           .status(200)
-          .redirect("http://localhost:4000/");
+          .redirect("https://autocluster.onrender.com/");
       } else {
         console.log("Inside thew Visss");
         const response = await Visitors.create({
@@ -147,7 +147,7 @@ exports.create = async (req, res) => {
         return res
           .clearCookie("visitor")
           .status(200)
-          .redirect("http://localhost:4000/");
+          .redirect("https://autocluster.onrender.com/");
       }
     }
     res.status(200).redirect("index");
