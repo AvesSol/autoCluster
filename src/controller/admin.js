@@ -65,6 +65,13 @@ exports.updateVisi = async (req, res) => {
       });
     }
 
+    if (user?.token == -1) {
+      return res.status(404).json({
+        success: false,
+        msg: "Sorry You are Rejected by Admin",
+      });
+    }
+
     if (!_id) {
       return res.status(404).json({
         success: false,
@@ -97,6 +104,7 @@ exports.updateVisi = async (req, res) => {
       });
 
       if (users === "Visitors") {
+
         response = await Visitors.findByIdAndUpdate(
           _id,
           {
@@ -128,7 +136,7 @@ exports.updateVisi = async (req, res) => {
           _id,
           {
             status: "Rejected",
-            token:null
+            token:-1
           },
           { new: true }
         );
@@ -137,7 +145,7 @@ exports.updateVisi = async (req, res) => {
           _id,
           {
             status: "Rejected",
-            token:null
+            token:-1
           },
           { new: true }
         );

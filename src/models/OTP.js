@@ -36,7 +36,7 @@ OTPSchema.pre("save", async function () {
       const info = await transporter.sendMail({
         from: "Momin Shoaib",
         to: this.email,
-        subject: "AutoCluster || Employee Only",
+        subject: "From AutoCluster ",
         html: `<h1> This is Your one time OTP : ${this.otp}</h1>`,
       });
     

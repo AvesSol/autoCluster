@@ -11,10 +11,26 @@ exports.sendOtp = async (req, res) => {
       // console.log("This is  Employee");
 
       const { fullName, id, contact, email, passFor, reason } = req.body;
-      console.log(fullName, id, contact, email, passFor, reason);
+      // console.log(fullName, id, contact, email, passFor, reason);
 
       if (!fullName || !id || !contact || !email || !passFor || !reason) {
         return res.send("Please fill all the Detials");
+      }
+
+      const  isUserExist = await Visitors.findOne({email});
+
+      if(isUserExist?.token){
+        return res.status(400).json({
+          success:false,
+          msg:"You already have a token"
+        })
+      }
+
+      if(isUserExist){
+        return res.status(400).json({
+          success:false,
+          msg:"User is Already Present in Visitor Section"
+        })
       }
 
       const otp = otpGenerator.generate(6, {
@@ -46,6 +62,23 @@ exports.sendOtp = async (req, res) => {
 
       if (!fullName || !contact || !email || !reason || !meet) {
         return res.send("Please fill all the Detials");
+      }
+
+      const  isUserExist = await Employee.findOne({email});
+
+      if(isUserExist?.token){
+        return res.status(400).json({
+          success:false,
+          msg:"You already have a token"
+        })
+      }
+
+
+      if(isUserExist){
+        return res.status(400).json({
+          success:false,
+          msg:"User is already Present in Employee Section"
+        })
       }
 
       const otp = otpGenerator.generate(6, {

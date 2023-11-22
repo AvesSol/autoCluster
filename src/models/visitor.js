@@ -35,6 +35,7 @@ const visitorSchema = new mongoose.Schema({
   },
   token: {
     type: String,
+    default:null
   },
   createdAt: {
     type: Date,
