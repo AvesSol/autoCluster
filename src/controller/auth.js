@@ -17,7 +17,7 @@ exports.sendOtp = async (req, res) => {
         return res.send("Please fill all the Detials");
       }
 
-      const  isUserExist = await Visitors.findOne({email});
+      const  isUserExist = await Employee.findOne({email});
 
       if(isUserExist?.token){
         return res.status(400).json({
@@ -64,7 +64,7 @@ exports.sendOtp = async (req, res) => {
         return res.send("Please fill all the Detials");
       }
 
-      const  isUserExist = await Employee.findOne({email});
+      const  isUserExist = await Visitors.findOne({email});
 
       if(isUserExist?.token){
         return res.status(400).json({
